@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LeVoyage">
         <activity
+            android:name=".PrivremeniActivityBuduciFragment"
+            android:exported="false" />
+        <activity
+            android:name=".DestinationDetails"
+            android:exported="false" />
+        <activity
             android:name=".databaseConn"
             android:exported="false" />
         <activity
@@ -27,6 +33,7 @@
             android:label="Home" />
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".PrivremeniActivityBuduciFragment"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

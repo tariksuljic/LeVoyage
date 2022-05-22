@@ -12,11 +12,14 @@
         <entry key="app/src/main/res/layout-v26/activity_login.xml" value="0.2484375" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1609772423025435" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.187890625" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3082342396611753" />
+        <entry key="app/src/main/res/layout/activity_destination_details.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3108190785283628" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19486287434895833" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2488693237304686" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.12158054711246201" />
+        <entry key="app/src/main/res/layout/activity_privremeni_buduci_fragment.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/custom_list_destinations.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
