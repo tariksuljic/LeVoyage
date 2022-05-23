@@ -10,21 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LeVoyage">
         <activity
-            android:name=".databaseConn"
-            android:exported="false" />
-        <activity
-            android:name=".Home"
-            android:exported="false" />
-        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".Login"
             android:exported="false" />
-        <activity
-            android:name=".MainPage"
-            android:exported="false"
-            android:label="Home" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -34,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Home" />
 
         <meta-data
             android:name="preloaded_fonts"

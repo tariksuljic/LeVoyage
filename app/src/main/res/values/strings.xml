@@ -2,4 +2,7 @@
     <string name="app_name">Le Voyage</string>
     <string name="welcome_to_the_le_voyage_travel_application">Welcome to the Le Voyage travel applcation </string>
     <string name="username">Username</string>
+    <string name="explore">Explore</string>
+    <string name="saved">Saved</string>
+    <string name="profile">Profile</string>
 </resources>
