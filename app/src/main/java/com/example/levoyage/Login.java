@@ -2,7 +2,6 @@ package com.example.levoyage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +33,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         switch (view.getId())
         {
             case R.id.buttonLogin:
+
                 startActivity(new Intent(this, Home.class));
                 break;
             case R.id.textViewRegisterLink:
