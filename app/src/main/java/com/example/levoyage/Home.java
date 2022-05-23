@@ -1,41 +1,83 @@
 package com.example.levoyage;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.util.Log;
+import android.view.MenuItem;
 
-public class Home extends AppCompatActivity implements View.OnClickListener {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-    Button buttonLogout;
-    EditText editTextName, editTextAge, editTextUsername;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+public class Home extends AppCompatActivity {
+    private BottomNavigationView bottomNavigationView;
+    private ViewPager viewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextAge = (EditText) findViewById(R.id.editTextAge);
-        editTextUsername= (EditText) findViewById(R.id.editTextUsername);
+        bottomNavigationView=findViewById(R.id.bottom_navigation_bar);
 
-        buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        viewPager=findViewById(R.id.fragment_container);
+        setUpAdapter(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position){
+                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
 
 
-        buttonLogout.setOnClickListener(this);
+        });
+
+
+
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId())
-        {
-            case R.id.buttonLogout:
-                startActivity(new Intent(this, Login.class));
-                break;
+    private void setUpAdapter(ViewPager viewPager){
+        ViewPageAdapter viewPageAdapter=new ViewPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        viewPageAdapter.addFragment(new ExploreFragment());
+        viewPageAdapter.addFragment(new SavedFragment());
+        viewPageAdapter.addFragment(new ProfileFragment());
+        viewPager.setAdapter(viewPageAdapter);
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener=new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Log.d("DEBUG","Item clicked"+item.getItemId());
+            switch(item.getItemId()){
+                case R.id.nav_explore:
+                    viewPager.setCurrentItem(0);
+                    return true;
+                case R.id.nav_saved:
+                    viewPager.setCurrentItem(1);
+                    return true;
+                case R.id.nav_profile:
+                    viewPager.setCurrentItem(2);
+                    return true;
+                default:
+                    return false;
+            }
         }
-    }
+    };
+
+
 }
