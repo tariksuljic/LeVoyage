@@ -21,7 +21,7 @@ public class PrivremeniActivityBuduciFragment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_privremeni_buduci_fragment);
+        setContentView(R.layout.fragment_explore);
 
         listView = findViewById(R.id.list_view_container);
 
