@@ -29,7 +29,7 @@ public class ExploreFragment extends Fragment {
 
         view=inflater.inflate(R.layout.fragment_explore,container,false);
 
-        listView = view.findViewById(R.id.fragment_container);
+        listView = view.findViewById(R.id.list_view_container);
         DestinationListAdapter destinationListAdapter = new DestinationListAdapter(getDestinations(),getActivity());
         listView.setAdapter(destinationListAdapter);
 
