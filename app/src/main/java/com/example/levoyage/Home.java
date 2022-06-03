@@ -1,5 +1,6 @@
 package com.example.levoyage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,8 +14,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Home extends AppCompatActivity {
+    public static final String USER_ID = "";
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
+
+    private User user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +30,11 @@ public class Home extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         viewPager=findViewById(R.id.fragment_container);
         setUpAdapter(viewPager);
+
+        Intent intent = getIntent();
+
+        int id = intent.getIntExtra(USER_ID, 0);
+        user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
 //        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
 //
 //            @Override
