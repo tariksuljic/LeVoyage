@@ -25,7 +25,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Home" />
-        <activity android:name=".DestinationDetails"/>
+        <activity android:name=".DestinationDetails"
+            android:parentActivityName=".Login"/>
+
+
+
 
         <meta-data
             android:name="preloaded_fonts"

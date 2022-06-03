@@ -17,6 +17,7 @@ public class DestinationDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destination_details);
 
+
         imageView = findViewById(R.id.details_image);
         title = findViewById(R.id.destination_title);
         description = findViewById(R.id.details_description);
