@@ -19,6 +19,9 @@ public class DestinationDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destination_details);
 
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.back_button);
+
 
         imageView = findViewById(R.id.details_image);
         title = findViewById(R.id.destination_title);
@@ -29,7 +32,8 @@ public class DestinationDetails extends AppCompatActivity {
         Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
         if (extras!=null) //Check is data passed to intent
         {
-            setTitle(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set action bar title to the news title
+            //setTitle(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set action bar title to the news title
+            setTitle(null);
             imageView.setImageResource(extras.getInt(ExploreFragment.EXTRA_IMAGE)); //Set title text
             title.setText(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set description text
             description.setText(extras.getString(ExploreFragment.EXTRA_DESCRIPTION)); //Set image source

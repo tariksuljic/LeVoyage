@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/drawable/explore.xml" value="0.2265" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/activity_database_conn.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/activity_destination_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/activity_destination_details.xml" value="0.25" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/activity_destination_details_vol2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
@@ -19,6 +19,7 @@
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/fragment_profile.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/layout/fragment_saved.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2265" />
         <entry key="..\:/Users/User/Downloads/LeVoyage/LeVoyage/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.191" />
         <entry key="app/src/main/res/layout-v26/activity_login.xml" value="0.2484375" />
