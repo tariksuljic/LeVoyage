@@ -37,7 +37,7 @@ public class DestinationDetails extends AppCompatActivity {
             imageView.setImageResource(extras.getInt(ExploreFragment.EXTRA_IMAGE)); //Set title text
             title.setText(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set description text
             description.setText(extras.getString(ExploreFragment.EXTRA_DESCRIPTION)); //Set image source
-            price.setText("from "+extras.getInt(ExploreFragment.EXTRA_PRICE)+"$");//Set price text
+            price.setText("$"+extras.getInt(ExploreFragment.EXTRA_PRICE));//Set price text
         }
     }
 }
