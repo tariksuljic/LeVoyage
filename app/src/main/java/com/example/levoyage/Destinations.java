@@ -4,8 +4,12 @@ public class Destinations {
     private int imageResId;
     private String title;
     private String description;
+    private int price;
 
-    public Destinations(int imageResId, String title, String description) {
+
+
+    public Destinations(int imageResId, String title, String description, int price) {
+        this.price=price;
         this.imageResId = imageResId;
         this.title = title;
         this.description = description;
@@ -36,6 +40,15 @@ public class Destinations {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
 
