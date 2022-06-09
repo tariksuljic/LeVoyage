@@ -5,7 +5,7 @@
     android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#001E43"
+    android:background="@drawable/loginslika"
     tools:context=".Login">
 
     <EditText
@@ -186,6 +186,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
+        android:background="#03A9F4"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
