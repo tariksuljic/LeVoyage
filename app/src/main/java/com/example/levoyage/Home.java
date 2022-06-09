@@ -35,26 +35,23 @@ public class Home extends AppCompatActivity {
 
         int id = intent.getIntExtra(USER_ID, 0);
         user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
-//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
-//
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position){
-//                bottomNavigationView.getMenu().getItem(position).setChecked(true);
-//
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//
-//
-//        });
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position){
+                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
 
 

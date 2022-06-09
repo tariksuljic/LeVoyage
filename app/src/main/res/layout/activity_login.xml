@@ -5,7 +5,7 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginslika"
+    android:background="@drawable/vyg"
 
     android:theme="@style/Theme.AppCompat.NoActionBar"
     tools:context=".Login">
@@ -18,7 +18,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="160dp"
         android:text="@string/username"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Password"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/editTextUsername"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
@@ -71,8 +71,12 @@
         android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/button_style"
+        android:fontFamily="@font/bevan"
         android:onClick="onClick"
         android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +94,7 @@
         android:onClick="onClick"
         android:text="Register Here"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
@@ -102,36 +106,37 @@
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="360dp"
-        android:layout_height="63dp"
+        android:layout_width="359dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="68dp"
-        android:text="Welcome to the Le Voyage travel application"
+        android:fontFamily="@font/crete_round_italic"
+        android:text="Le Voyage"
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textSize="38sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/usernameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.716" />
 
     <TextView
         android:id="@+id/descMessageLogin"
         android:layout_width="281dp"
         android:layout_height="25dp"
+        android:fontFamily="@font/didact_gothic"
         android:justificationMode="inter_word"
         android:text="Your dreams start here"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/usernameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.163" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
