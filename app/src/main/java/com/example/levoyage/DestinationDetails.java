@@ -4,8 +4,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DestinationDetails extends AppCompatActivity {
 
@@ -13,6 +16,7 @@ public class DestinationDetails extends AppCompatActivity {
     private TextView title;
     private TextView description;
     private TextView price;
+    private FloatingActionButton mapButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class DestinationDetails extends AppCompatActivity {
         title = findViewById(R.id.destination_title);
         description = findViewById(R.id.details_description);
         price=findViewById(R.id.destination_price);
+        mapButton = findViewById(R.id.floating_location_button);
 
 
         Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
@@ -40,4 +45,7 @@ public class DestinationDetails extends AppCompatActivity {
             price.setText("$"+extras.getInt(ExploreFragment.EXTRA_PRICE));//Set price text
         }
     }
+
+
+
 }

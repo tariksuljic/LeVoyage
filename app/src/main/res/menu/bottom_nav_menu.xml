@@ -5,10 +5,10 @@
           android:icon="@drawable/explore"
           android:title="@string/explore"
         />
-    <item android:id="@+id/nav_saved"
-        android:icon="@drawable/saved"
-        android:title="@string/saved"
-        />
+    <item
+        android:id="@+id/nav_saved"
+        android:icon="@drawable/notifications"
+        android:title="@string/notifications" />
     <item android:id="@+id/nav_profile"
         android:icon="@drawable/profile"
         android:title="@string/profile"
