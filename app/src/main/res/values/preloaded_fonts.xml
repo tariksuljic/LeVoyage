@@ -3,6 +3,8 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/courgette</item>
         <item>@font/crete_round_italic</item>
+        <item>@font/didact_gothic</item>
         <item>@font/felipa</item>
+        <item>@font/simonetta</item>
     </array>
 </resources>

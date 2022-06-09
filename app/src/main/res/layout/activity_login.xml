@@ -73,6 +73,7 @@
         android:background="@drawable/button_style"
         android:onClick="onClick"
         android:text="Login"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,36 +103,37 @@
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="360dp"
-        android:layout_height="63dp"
+        android:layout_width="359dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="68dp"
-        android:text="Welcome to the Le Voyage travel application"
+        android:fontFamily="@font/didact_gothic"
+        android:text="Le Voyage"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="38sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/usernameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.716" />
+
+    <TextView
+        android:id="@+id/descMessageLogin"
+        android:layout_width="281dp"
+        android:layout_height="25dp"
+        android:fontFamily="@font/simonetta"
+        android:justificationMode="inter_word"
+        android:text="Your dreams start here"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/usernameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/descMessageLogin"
-        android:layout_width="281dp"
-        android:layout_height="25dp"
-        android:justificationMode="inter_word"
-        android:text="Your dreams start here"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/usernameText"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.163" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
