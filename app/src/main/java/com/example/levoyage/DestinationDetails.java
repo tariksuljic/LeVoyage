@@ -32,8 +32,7 @@ public class DestinationDetails extends AppCompatActivity {
         Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
         if (extras!=null) //Check is data passed to intent
         {
-            //setTitle(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set action bar title to the news title
-            setTitle(null);
+            setTitle(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set action bar title to the news title
             imageView.setImageResource(extras.getInt(ExploreFragment.EXTRA_IMAGE)); //Set title text
             title.setText(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set description text
             description.setText(extras.getString(ExploreFragment.EXTRA_DESCRIPTION)); //Set image source
