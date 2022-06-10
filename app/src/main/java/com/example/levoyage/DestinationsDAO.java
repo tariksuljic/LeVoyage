@@ -16,13 +16,13 @@ public interface DestinationsDAO {
     public void addDestination(Destinations destination);
 
     @Query("SELECT * FROM destinations")
-    public ArrayList<Destinations> getAllDestinations();
+    public List<Destinations> getAllDestinations();
 
     @Query("SELECT * FROM destinations WHERE destinationId = :destination_id LIMIT 1")
     public Destinations getDestination(int destination_id);
 
     @Query("SELECT * FROM destinations WHERE destination_title = :destination_title LIMIT 1")
-    public User getDestinationByTitle(String destination_title);
+    public Destinations getDestinationByTitle(String destination_title);
 
 
 

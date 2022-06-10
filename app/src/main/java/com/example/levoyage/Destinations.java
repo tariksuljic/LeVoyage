@@ -53,29 +53,28 @@ public class Destinations {
         this.imageResId = imageResId;
     }
 
-    public String getTitle() {
+    public String getDestination_title() {
         return destination_title;
     }
 
-    public void setTitle(String title) {
-        this.destination_title = title;
+    public void setDestination_title(String destination_title) {
+        this.destination_title = destination_title;
     }
 
-    public String getDescription() {
+    public String getDestination_description() {
         return destination_description;
     }
 
-    public void setDescription(String description) {
-        this.destination_description = description;
+    public void setDestination_description(String destination_description) {
+        this.destination_description = destination_description;
     }
 
-
-    public int getPrice() {
+    public int getDestination_price() {
         return destination_price;
     }
 
-    public void setPrice(int price) {
-        this.destination_price = price;
+    public void setDestination_price(int destination_price) {
+        this.destination_price = destination_price;
     }
 }
 
