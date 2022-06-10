@@ -15,10 +15,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Home extends AppCompatActivity {
     public static final String USER_ID = "";
+    public static final String DESTINATION_ID = "";
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
 
     private User user;
+    private Destinations destinations;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +36,9 @@ public class Home extends AppCompatActivity {
         Intent intent = getIntent();
 
         int id = intent.getIntExtra(USER_ID, 0);
-        user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
+        user = MyDatabase.getDatabase(this).myUserDAO().getUser(id);
+        int destination_id = intent.getIntExtra(DESTINATION_ID, 0);
+        destinations = MyDatabase.getDatabase(this).myDestinationDAO().getDestination(destination_id);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

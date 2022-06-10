@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         {
             case R.id.buttonLogin:
 
-                User tempUser = UserDatabase.getDatabase(this).myUserDAO().checkIfLoginLegit(editTextUsername.getText().toString(), editTextPassword.getText().toString());
+                User tempUser = MyDatabase.getDatabase(this).myUserDAO().checkIfLoginLegit(editTextUsername.getText().toString(), editTextPassword.getText().toString());
 
                 if (tempUser == null)
                 {

@@ -39,15 +39,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             case R.id.buttonRegister:
                 String new_user_username = editTextUsernameRegister.getText().toString();
                 User tempUser = null;
-                tempUser = UserDatabase.getDatabase(this).myUserDAO().getUserByUsername(new_user_username);
+                tempUser = MyDatabase.getDatabase(this).myUserDAO().getUserByUsername(new_user_username);
 
                 if (tempUser == null)
                 {
                     User newUser = new User(editTextName.getText().toString(), editTextLastName.getText().toString()
                                             ,editTextEmail.getText().toString(),Integer.parseInt(editTextAge.getText().toString()),editTextUsernameRegister.getText().toString(),editTextPassword.getText().toString());
-                    UserDatabase.getDatabase(this).myUserDAO().addUser(newUser);
+                    MyDatabase.getDatabase(this).myUserDAO().addUser(newUser);
 
-                    int new_id = UserDatabase.getDatabase(this).myUserDAO().getUserIDByUsername(editTextUsernameRegister.getText().toString());
+                    int new_id = MyDatabase.getDatabase(this).myUserDAO().getUserIDByUsername(editTextUsernameRegister.getText().toString());
 
                     Intent intent = new Intent(Register.this, Login.class);
                     intent.putExtra(USER_ID, new_id);
