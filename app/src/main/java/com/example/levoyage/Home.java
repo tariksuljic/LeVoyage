@@ -18,7 +18,7 @@ public class Home extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
 
-    private User user;
+    public User user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,12 +29,12 @@ public class Home extends AppCompatActivity {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         viewPager=findViewById(R.id.fragment_container);
-        setUpAdapter(viewPager);
 
         Intent intent = getIntent();
 
         int id = intent.getIntExtra(USER_ID, 0);
         user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
+        Log.d("Error home", " "+user);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -52,6 +52,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
+        setUpAdapter(viewPager);
 
 
 
@@ -61,7 +62,8 @@ public class Home extends AppCompatActivity {
         ViewPageAdapter viewPageAdapter=new ViewPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPageAdapter.addFragment(new ExploreFragment());
         viewPageAdapter.addFragment(new BookingFragment());
-        viewPageAdapter.addFragment(new ProfileFragment());
+        viewPageAdapter.addFragment(new ProfileFragment(user));
+        Log.d("Error home", " "+user);
         viewPager.setAdapter(viewPageAdapter);
     }
 

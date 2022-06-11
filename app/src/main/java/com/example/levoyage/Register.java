@@ -21,8 +21,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextLastName = (EditText) findViewById(R.id.editTextLastName);
+        editTextName = (EditText) findViewById(R.id.nametv);
+        editTextLastName = (EditText) findViewById(R.id.lastNametv);
         editTextAge = (EditText) findViewById(R.id.editTextAge);
         editTextUsernameRegister = (EditText) findViewById(R.id.editTextUsernameRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);

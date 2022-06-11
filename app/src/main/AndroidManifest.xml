@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LeVoyage">
         <activity
+            android:name=".EditProfile"
+            android:exported="false" />
+        <activity
             android:name=".BookingActivity"
             android:exported="false" />
         <activity
@@ -31,7 +34,6 @@
         <activity
             android:name=".DestinationDetails"
             android:parentActivityName=".Home" />
-
 
         <meta-data
             android:name="preloaded_fonts"
