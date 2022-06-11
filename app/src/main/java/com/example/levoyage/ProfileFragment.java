@@ -17,8 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class ProfileFragment extends Fragment {
-
-    private TextView username,name,lastname,email,dateofbirth,namesurname;
+    public static final String USER_EXTRA = "MainActivity/EXTRA_USER_ID";
+    private TextView username,name,lastname,email,dateofbirth,namesurname,gotoedit;
     private Button logoutButton;
     private User user;
 
@@ -45,6 +45,15 @@ public class ProfileFragment extends Fragment {
         email.setText(user.getEmail());
         dateofbirth.setText(Integer.toString(user.getBirthYear()));
         namesurname.setText(user.getName()+" "+user.getSurname());
+        TextView gotoedit = view.findViewById(R.id.editProfileTV);
+        gotoedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), EditProfile.class);
+                intent.putExtra(USER_EXTRA, user.getId());
+                startActivity(intent);
+            }
+        });
 
 
 

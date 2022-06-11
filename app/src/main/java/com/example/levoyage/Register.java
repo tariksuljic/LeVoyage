@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         editTextUsernameRegister = (EditText) findViewById(R.id.editTextUsernameRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editText_Password);
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        buttonRegister = (Button) findViewById(R.id.buttonUpdate);
 
         buttonRegister.setOnClickListener(this);
     }
@@ -36,7 +36,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId())
         {
-            case R.id.buttonRegister:
+            case R.id.buttonUpdate:
                 String new_user_username = editTextUsernameRegister.getText().toString();
                 User tempUser = null;
                 tempUser = UserDatabase.getDatabase(this).myUserDAO().getUserByUsername(new_user_username);
