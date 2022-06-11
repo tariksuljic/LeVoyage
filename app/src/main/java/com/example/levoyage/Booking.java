@@ -1,32 +1,64 @@
 package com.example.levoyage;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "bookings")
+@Entity(tableName = "bookings", foreignKeys = {
+        @ForeignKey(entity = Destinations.class,
+                    parentColumns = "destination_id",
+                    childColumns = "b_destination_id"),
+        @ForeignKey(entity = User.class,
+                parentColumns = "user_id",
+                childColumns = "b_user_id")
+
+}
+
+
+
+
+
+
+)
 public class Booking {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "booking_id")
     private int bookingId;
 
+    @ColumnInfo(name = "b_destination_id")
     private int userId;
+
+    @ColumnInfo(name="b_user_id")
     private int destinationId;
-    private int numberOfPeople;
-    private int totalPrice;
+
+    private int bookedImageResId;
+    private int numberOfPeople,totalPrice;
+
+    public int getBookedImageResId() {
+        return bookedImageResId;
+    }
+
+    public void setBookedImageResId(int bookedImageResId) {
+        this.bookedImageResId = bookedImageResId;
+    }
 
     @Ignore
-    public Booking(int userId,int destinationId,int numberOfPeople,int totalPrice){
+    public Booking(int userId,int destinationId,int bookedImageResId,int numberOfPeople,int totalPrice){
         this.userId=userId;
         this.destinationId=destinationId;
+        this.bookedImageResId=bookedImageResId;
         this.numberOfPeople=numberOfPeople;
         this.totalPrice=totalPrice;
     }
 
-    public Booking(int bookingId,int userId,int destinationId,int numberOfPeople,int totalPrice){
+    public Booking(int bookingId, int userId, int destinationId, int bookedImageResId, int numberOfPeople, int totalPrice){
         this.bookingId=bookingId;
         this.userId=userId;
         this.destinationId=destinationId;
+        this.bookedImageResId= bookedImageResId;
         this.numberOfPeople=numberOfPeople;
         this.totalPrice=totalPrice;
     }

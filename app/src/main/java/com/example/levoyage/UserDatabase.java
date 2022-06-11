@@ -12,6 +12,7 @@ public abstract class UserDatabase extends RoomDatabase{
     private static UserDatabase INSTANCE = null;
     public abstract UserDAO myUserDAO();
     public abstract DestinationsDAO myDestinationsDAO();
+    public abstract BookingDAO myBookingDAO();
 
 
     public static UserDatabase getDatabase(Context context)

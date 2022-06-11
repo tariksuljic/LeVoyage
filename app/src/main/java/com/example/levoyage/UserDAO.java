@@ -16,13 +16,13 @@ public interface UserDAO {
     @Query("SELECT * FROM users")
     public List<User> getAllUsers();
 
-    @Query("SELECT * FROM users WHERE id = :user_id LIMIT 1")
+    @Query("SELECT * FROM users WHERE user_id = :user_id LIMIT 1")
     public User getUser(int user_id);
 
     @Query("SELECT * FROM users WHERE username = :username LIMIT 1")
     public User getUserByUsername(String username);
 
-    @Query("SELECT id FROM users WHERE username = :username LIMIT 1")
+    @Query("SELECT user_id FROM users WHERE username = :username LIMIT 1")
     public int getUserIDByUsername(String username);
 
     @Query("SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1")

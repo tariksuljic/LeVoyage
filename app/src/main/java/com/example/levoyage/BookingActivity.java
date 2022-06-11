@@ -11,7 +11,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
     private TextView title,fullName,email,numberOfPersons,totalPrice;
-    private Button increment,decrement;
+    private Button increment,decrement,book;
     int count=0;
 
     @Override
@@ -26,6 +26,8 @@ public class BookingActivity extends AppCompatActivity {
         totalPrice=findViewById(R.id.total_price);
         increment=findViewById(R.id.increment_button);
         decrement=findViewById(R.id.decrement_button);
+        book=findViewById(R.id.book_now_button);
+
 
 
 
@@ -45,6 +47,13 @@ public class BookingActivity extends AppCompatActivity {
 
                 numberOfPersons.setText(" "+count);
 
+
+            }
+        });
+
+        book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
