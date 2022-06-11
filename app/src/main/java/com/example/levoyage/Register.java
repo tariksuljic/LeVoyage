@@ -38,8 +38,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         {
             case R.id.buttonUpdate:
                 String new_user_username = editTextUsernameRegister.getText().toString();
+
                 User tempUser = null;
                 tempUser = UserDatabase.getDatabase(this).myUserDAO().getUserByUsername(new_user_username);
+
 
                 if (tempUser == null)
                 {

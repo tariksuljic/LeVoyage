@@ -16,6 +16,7 @@ public class DestinationDetails extends AppCompatActivity {
     private TextView title;
     private TextView description;
     private TextView price;
+    private TextView number;
     private Button book;
 
     @Override
@@ -32,6 +33,7 @@ public class DestinationDetails extends AppCompatActivity {
         description = findViewById(R.id.details_description);
         price=findViewById(R.id.destination_price);
         book=findViewById(R.id.book_button);
+        number = findViewById(R.id.details_number);
 
 
         Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
@@ -42,6 +44,7 @@ public class DestinationDetails extends AppCompatActivity {
             title.setText(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set description text
             description.setText(extras.getString(ExploreFragment.EXTRA_DESCRIPTION)); //Set image source
             price.setText("$"+extras.getInt(ExploreFragment.EXTRA_PRICE));//Set price text
+            //number.setText(); TREBA SETATI BROJ ZA VODICA KAO CLICKABLE ZA PERMISIJE
         }
 
 

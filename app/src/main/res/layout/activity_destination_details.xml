@@ -45,6 +45,20 @@
         app:layout_constraintTop_toBottomOf="@+id/destination_price" />
 
     <TextView
+        android:id="@+id/details_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="fill_horizontal"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destination_price" />
+
+    <TextView
         android:id="@+id/destination_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -64,24 +78,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/light_blue"
+        android:background="@drawable/button_style"
         android:onClick="book"
         android:text="@string/book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_location_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="#FFFFFF"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:maxImageSize="32dp"
-        app:srcCompat="@drawable/location_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
