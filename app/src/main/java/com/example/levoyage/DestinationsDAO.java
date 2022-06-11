@@ -24,7 +24,8 @@ public interface DestinationsDAO {
     @Query("SELECT * FROM destinations WHERE destination_title = :destination_title LIMIT 1")
     public Destinations getDestinationByTitle(String destination_title);
 
-
+    @Query("SELECT * FROM destinations WHERE phone_number = :phone_number LIMIT 1")
+    public Destinations getPhoneNumber(String phone_number);
 
     @Delete
     public void deleteUser(Destinations destination);

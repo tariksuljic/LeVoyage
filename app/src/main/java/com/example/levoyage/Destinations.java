@@ -16,27 +16,38 @@ public class Destinations {
     private String destination_title;
     private String destination_description;
     private int destination_price;
+    private String phone_number;
 
 
     @Ignore
-    public Destinations(int imageResId, String title, String description, int price) {
+    public Destinations(int imageResId, String title, String description, int price, String phone_number) {
         this.destination_price=price;
         this.imageResId = imageResId;
         this.destination_title = title;
         this.destination_description = description;
+        this.phone_number = phone_number;
     }
 
-    public Destinations(int destinationId,int imageResId, String title, String description, int price) {
+    public Destinations(int destinationId,int imageResId, String title, String description, int price, String phone_number) {
         this.destinationId=destinationId;
         this.destination_price=price;
         this.imageResId = imageResId;
         this.destination_title = title;
         this.destination_description = description;
+        this.phone_number = phone_number;
     }
 
 
 
     public Destinations() {
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public int getDestinationId() {

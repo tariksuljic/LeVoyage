@@ -6,4 +6,5 @@
     <string name="saved">Saved</string>
     <string name="profile">Profile</string>
     <string name="book">Book</string>
+    <string name="need_more_info">You need more info?\nClick here:</string>
 </resources>
