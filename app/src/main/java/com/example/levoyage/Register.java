@@ -38,10 +38,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         {
             case R.id.buttonRegister:
                 String new_user_username = editTextUsernameRegister.getText().toString();
+                String new_email = editTextEmail.getText().toString();
+                User tempEmail = null;
                 User tempUser = null;
                 tempUser = UserDatabase.getDatabase(this).myUserDAO().getUserByUsername(new_user_username);
+                tempEmail = UserDatabase.getDatabase(this).myUserDAO().getEmail(new_email);
 
-                if (tempUser == null)
+                if (tempUser == null || tempEmail == null)
                 {
                     User newUser = new User(editTextName.getText().toString(), editTextLastName.getText().toString()
                                             ,editTextEmail.getText().toString(),Integer.parseInt(editTextAge.getText().toString()),editTextUsernameRegister.getText().toString(),editTextPassword.getText().toString());
@@ -55,7 +58,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 }
                 else
                 {
-                    Toast.makeText(this, "Username is not available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Username or Email is not available", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
