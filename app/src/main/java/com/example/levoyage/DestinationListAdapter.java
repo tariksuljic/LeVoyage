@@ -46,8 +46,8 @@ public class DestinationListAdapter extends BaseAdapter {
         //TextView descriptionTextView = convertView.findViewById(R.id.item_description);
 
         imageView.setImageResource(destinations.getImageResId());
-        titleTextView.setText(destinations.getTitle());
-        priceTextVew.setText("from "+destinations.getPrice()+"$");
+        titleTextView.setText(destinations.getDestination_title());
+        priceTextVew.setText("from "+destinations.getDestination_price()+"$");
         //descriptionTextView.setText(destinations.getDescription());
 
         return convertView;

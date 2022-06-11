@@ -6,11 +6,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class,Destinations.class,Booking.class}, version = 1)
 public abstract class UserDatabase extends RoomDatabase{
 
     private static UserDatabase INSTANCE = null;
     public abstract UserDAO myUserDAO();
+    public abstract DestinationsDAO myDestinationsDAO();
+    public abstract BookingDAO myBookingDAO();
+
 
     public static UserDatabase getDatabase(Context context)
     {

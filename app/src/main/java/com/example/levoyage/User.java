@@ -1,5 +1,6 @@
 package com.example.levoyage;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -8,6 +9,7 @@ import androidx.room.PrimaryKey;
 public class User {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "user_id")
     private int id; //autoGenerate da generise novi unikatan key
 
     private String name;
