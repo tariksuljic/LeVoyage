@@ -17,14 +17,14 @@ public class Destinations {
     private int imageResId;
     private String destination_title;
     private String destination_description;
-    private int destination_price;
+    private String destination_price;
     private String phone_number;
     private String date;
 
 
 
     @Ignore
-    public Destinations(int imageResId, String title, String description, int price, String phone_number,String date) {
+    public Destinations(int imageResId, String title, String description, String price, String phone_number,String date) {
         this.destination_price=price;
         this.imageResId = imageResId;
         this.destination_title = title;
@@ -33,7 +33,7 @@ public class Destinations {
         this.date=date;
     }
 
-    public Destinations(int destinationId,int imageResId, String title, String description, int price, String phone_number,String date) {
+    public Destinations(int destinationId,int imageResId, String title, String description, String price, String phone_number,String date) {
         this.destinationId=destinationId;
         this.destination_price=price;
         this.imageResId = imageResId;
@@ -88,11 +88,11 @@ public class Destinations {
         this.destination_description = destination_description;
     }
 
-    public int getDestination_price() {
+    public String getDestination_price() {
         return destination_price;
     }
 
-    public void setDestination_price(int destination_price) {
+    public void setDestination_price(String destination_price) {
         this.destination_price = destination_price;
     }
     public String getDate() {

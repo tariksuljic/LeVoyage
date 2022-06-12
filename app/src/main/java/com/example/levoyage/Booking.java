@@ -31,19 +31,30 @@ public class Booking {
  //   private int destinationId;
  //  private int bookedImageResId;
     private String totalPrice;
+    private String destinationTitle;
 
 
-    public Booking(int bookingId, int userId, String totalPrice) {
+    public Booking(int bookingId, int userId, String totalPrice,String destinationTitle) {
         this.bookingId = bookingId;
         this.userId = userId;
         this.totalPrice = totalPrice;
+        this.destinationTitle=destinationTitle;
     }
 
     @Ignore
-    public Booking( int userId, String totalPrice) {
+    public Booking( int userId, String totalPrice,String destinationTitle) {
 
         this.userId = userId;
         this.totalPrice = totalPrice;
+        this.destinationTitle=destinationTitle;
+    }
+
+    public String getDestinationTitle() {
+        return destinationTitle;
+    }
+
+    public void setDestinationTitle(String destinationTitle) {
+        this.destinationTitle = destinationTitle;
     }
 
     public int getBookingId() {
