@@ -18,7 +18,7 @@ public interface DestinationsDAO {
     @Query("SELECT * FROM destinations")
     public List<Destinations> getAllDestinations();
 
-    @Query("SELECT * FROM destinations WHERE destination_id = :destination_id LIMIT 1")
+    @Query("SELECT * FROM destinations WHERE destinationId = :destination_id LIMIT 1")
     public Destinations getDestination(int destination_id);
 
     @Query("SELECT * FROM destinations WHERE destination_title = :destination_title LIMIT 1")

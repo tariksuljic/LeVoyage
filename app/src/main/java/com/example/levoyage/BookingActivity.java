@@ -3,6 +3,9 @@ package com.example.levoyage;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
@@ -12,20 +15,21 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BookingActivity extends AppCompatActivity {
 
 
-    private TextView title,fullName,email,numberOfPersons,totalPrice;
+    private TextView title,fullName,email,numberOfPersons,totalPrice,date;
     private Button increment,decrement,book;
-    int count=1;
+    private ImageView image;
     public static final String CHANNEL_ID = "My channel";
-    SharedPreferences sh = getSharedPreferences("UserIDShared", MODE_PRIVATE);
-    int id = sh.getInt("userID", 0);
-    User user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
+    private int id;
+
 
 
     @Override
@@ -35,22 +39,18 @@ public class BookingActivity extends AppCompatActivity {
 
         Bundle extras=getIntent().getExtras();
         title=findViewById(R.id.booking_title);
-        fullName=findViewById(R.id.full_name);
-        email=findViewById(R.id.email);
-        numberOfPersons=findViewById(R.id.number_of_persons);
         totalPrice=findViewById(R.id.total_price);
-        increment=findViewById(R.id.increment_button);
-        decrement=findViewById(R.id.decrement_button);
         book=findViewById(R.id.book_now_button);
+        image=findViewById(R.id.booked_image);
+        date=findViewById(R.id.date);
 
         if(extras!=null){
-
+            id=extras.getInt(DestinationDetails.USER_ID);
             title.setText(extras.getString(DestinationDetails.EXTRA_TITLE));
-            totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
-            fullName.setText(user.getName()+user.getSurname());
-            email.setText(user.getEmail());
-
-
+            Log.d("PRICE",""+extras.getString(DestinationDetails.EXTRA_PRICE));
+            totalPrice.setText(extras.getString(DestinationDetails.EXTRA_PRICE));
+            date.setText(extras.getString(DestinationDetails.EXTRA_DATE));
+            image.setImageResource(extras.getInt(DestinationDetails.EXTRA_IMAGE));
 
         }
 
@@ -63,34 +63,37 @@ public class BookingActivity extends AppCompatActivity {
         }
 
 
-        increment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                numberOfPersons.setText(" "+count);
-                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+//        increment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                count++;
+//                numberOfPersons.setText(""+count);
+//                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+//
+//            }
+//        });
+//
+//        decrement.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(count<=1) count=1;
+//                else count--;
+//
+//                numberOfPersons.setText(""+count);
+//                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+//
+//
+//
+//            }
+//        });
 
-            }
-        });
-
-        decrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(count<=1) count=1;
-                else count--;
-
-                numberOfPersons.setText(" "+count);
-                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
-
-
-
-            }
-        });
 
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Booking booking=new Booking(id,totalPrice.getText().toString(),title.getText().toString());
+                UserDatabase.getDatabase(BookingActivity.this).myBookingDAO().addBooking(booking);
 
 
 

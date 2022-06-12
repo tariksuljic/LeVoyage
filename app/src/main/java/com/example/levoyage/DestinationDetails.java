@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,15 +20,18 @@ import android.widget.Toast;
 
 public class DestinationDetails extends AppCompatActivity {
 
-    public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION = "EXTRA_DESCRIPTION";
+    public static final String EXTRA_DATE = "EXTRA_DATE";
     public static final String EXTRA_PRICE="EXTRA_PRICE";
+    public static final String EXTRA_DESTINATION_ID="EXTRA_DESTINATION_ID";
+    public static final String EXTRA_IMAGE="EXTRA_IMAGE";
+    public static final String USER_ID="USER_ID";
 
+    private int id;
     private ImageView imageView;
     private TextView title;
     private TextView description;
-    private TextView price;
+    private TextView price,date;
     private Button number;
     private Button book;
     private static final int CALL_REQUEST_CODE = 123;
@@ -47,16 +51,20 @@ public class DestinationDetails extends AppCompatActivity {
         price=findViewById(R.id.destination_price);
         book=findViewById(R.id.book_button);
         number = findViewById(R.id.button_callUS);
+        date=findViewById(R.id.destination_date);
 
 
         Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
         if (extras!=null) //Check is data passed to intent
         {
+            id=extras.getInt(ExploreFragment.USER_ID);
             setTitle(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set action bar title to the news title
             imageView.setImageResource(extras.getInt(ExploreFragment.EXTRA_IMAGE)); //Set title text
             title.setText(extras.getString(ExploreFragment.EXTRA_TITLE)); //Set description text
             description.setText(extras.getString(ExploreFragment.EXTRA_DESCRIPTION)); //Set image source
             price.setText("$"+extras.getInt(ExploreFragment.EXTRA_PRICE));//Set price text
+            date.setText(extras.getString(ExploreFragment.EXTRA_DATE));
+
         }
 
         number.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +80,6 @@ public class DestinationDetails extends AppCompatActivity {
                 }
                 else
                 {
-
                     ActivityCompat.requestPermissions(DestinationDetails.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_REQUEST_CODE);
                 }
 
@@ -128,15 +135,17 @@ public class DestinationDetails extends AppCompatActivity {
 
 
         public void book(View view){
-            Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
-            if (extras!=null) //Check is data passed to intent
-            {
-                Intent intent = new Intent(this, BookingActivity.class);
-                intent.putExtra(EXTRA_TITLE,extras.getString(ExploreFragment.EXTRA_TITLE));
-                intent.putExtra(EXTRA_PRICE,extras.getInt(ExploreFragment.EXTRA_PRICE));
+            Intent intent = new Intent(this, BookingActivity.class);
+            String destination_title=title.getText().toString();
+            Destinations destination = UserDatabase.getDatabase(this).myDestinationsDAO().getDestinationByTitle(destination_title);
+            intent.putExtra(USER_ID,id);
+            intent.putExtra(EXTRA_TITLE,destination.getDestination_title());
+            intent.putExtra(EXTRA_PRICE,destination.getDestination_price());
+            intent.putExtra(EXTRA_DATE,destination.getDate());
+            intent.putExtra(EXTRA_IMAGE,destination.getImageResId());
+
 
                 startActivity(intent);
-            }
 
         }
 }
