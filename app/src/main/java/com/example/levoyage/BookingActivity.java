@@ -9,6 +9,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,9 @@ public class BookingActivity extends AppCompatActivity {
     private Button increment,decrement,book;
     int count=1;
     public static final String CHANNEL_ID = "My channel";
+    SharedPreferences sh = getSharedPreferences("UserIDShared", MODE_PRIVATE);
+    int id = sh.getInt("userID", 0);
+    User user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
 
 
     @Override
@@ -43,6 +47,8 @@ public class BookingActivity extends AppCompatActivity {
 
             title.setText(extras.getString(DestinationDetails.EXTRA_TITLE));
             totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+            fullName.setText(user.getName()+user.getSurname());
+            email.setText(user.getEmail());
 
 
 

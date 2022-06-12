@@ -26,8 +26,8 @@ public class ExploreFragment extends Fragment {
     public static final String EXTRA_PRICE="EXTRA_PRICE";
     public static final String EXTRA_NUMBER = "EXTRA_NUMBER";
 
-
-    ExploreFragment(User user){
+    public ExploreFragment(){}
+    public ExploreFragment(User user){
         this.user=user;
     }
 
