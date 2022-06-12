@@ -11,13 +11,13 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.room.Dao;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class ExploreFragment extends Fragment {
 
+    User user;
     View view;
     private ListView listView;
     public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
@@ -25,6 +25,11 @@ public class ExploreFragment extends Fragment {
     public static final String EXTRA_DESCRIPTION = "EXTRA_DESCRIPTION";
     public static final String EXTRA_PRICE="EXTRA_PRICE";
     public static final String EXTRA_NUMBER = "EXTRA_NUMBER";
+
+
+    ExploreFragment(User user){
+        this.user=user;
+    }
 
     @Nullable
     @Override

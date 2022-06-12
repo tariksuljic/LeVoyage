@@ -19,6 +19,11 @@ import android.widget.Toast;
 
 public class DestinationDetails extends AppCompatActivity {
 
+    public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
+    public static final String EXTRA_TITLE = "EXTRA_TITLE";
+    public static final String EXTRA_DESCRIPTION = "EXTRA_DESCRIPTION";
+    public static final String EXTRA_PRICE="EXTRA_PRICE";
+
     private ImageView imageView;
     private TextView title;
     private TextView description;
@@ -123,9 +128,15 @@ public class DestinationDetails extends AppCompatActivity {
 
 
         public void book(View view){
+            Bundle extras = getIntent().getExtras(); //get intend that passed from source activity and extras that was added to intent
+            if (extras!=null) //Check is data passed to intent
+            {
+                Intent intent = new Intent(this, BookingActivity.class);
+                intent.putExtra(EXTRA_TITLE,extras.getString(ExploreFragment.EXTRA_TITLE));
+                intent.putExtra(EXTRA_PRICE,extras.getInt(ExploreFragment.EXTRA_PRICE));
 
-        Intent intent=new Intent(this,BookingActivity.class);
-        startActivity(intent);
+                startActivity(intent);
+            }
 
         }
 }

@@ -40,13 +40,17 @@ public class BookingListAdapter extends BaseAdapter {
         LayoutInflater inflater= LayoutInflater.from(context);
 
         convertView = inflater.inflate(R.layout.custom_list_booking, parent,false);
-        Booking bookings = bookingList.get(position);
+        Booking booking = bookingList.get(position);
 
         ImageView imageView = convertView.findViewById(R.id.booked_destination_image);
         TextView titleTextView = convertView.findViewById(R.id.booked_destination_title);
         TextView priceTextView=convertView.findViewById(R.id.booked_destination_price);
         TextView dateTextView=convertView.findViewById(R.id.booked_destination_date);
         TextView personsTextView=convertView.findViewById(R.id.numOfPeople);
+
+        personsTextView.setText(String.valueOf(booking.getNumberOfPeople()));
+
+
 
 //        imageView.setImageResource(destinations.getImageResId());
 //        titleTextView.setText(destinations.getDestination_title());

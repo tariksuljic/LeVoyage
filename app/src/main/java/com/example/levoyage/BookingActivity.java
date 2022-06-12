@@ -20,7 +20,7 @@ public class BookingActivity extends AppCompatActivity {
 
     private TextView title,fullName,email,numberOfPersons,totalPrice;
     private Button increment,decrement,book;
-    int count=0;
+    int count=1;
     public static final String CHANNEL_ID = "My channel";
 
 
@@ -29,6 +29,7 @@ public class BookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
+        Bundle extras=getIntent().getExtras();
         title=findViewById(R.id.booking_title);
         fullName=findViewById(R.id.full_name);
         email=findViewById(R.id.email);
@@ -37,6 +38,15 @@ public class BookingActivity extends AppCompatActivity {
         increment=findViewById(R.id.increment_button);
         decrement=findViewById(R.id.decrement_button);
         book=findViewById(R.id.book_now_button);
+
+        if(extras!=null){
+
+            title.setText(extras.getString(DestinationDetails.EXTRA_TITLE));
+            totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+
+
+
+        }
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -52,16 +62,20 @@ public class BookingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 numberOfPersons.setText(" "+count);
+                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+
             }
         });
 
         decrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count<=0) count=0;
+                if(count<=1) count=1;
                 else count--;
 
                 numberOfPersons.setText(" "+count);
+                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+
 
 
             }
@@ -70,6 +84,10 @@ public class BookingActivity extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                 new AlertDialog.Builder(BookingActivity.this).setTitle("Le Voyage").setMessage("Congrats!\nYou have successfully booked your destination").show();
                 Intent intent = new Intent(BookingActivity.this, Home.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(BookingActivity.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
@@ -82,6 +100,9 @@ public class BookingActivity extends AppCompatActivity {
                 managerCompat.notify(1, builder.build());
             }
         });
+
+
+
 
 
     }

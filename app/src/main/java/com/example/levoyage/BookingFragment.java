@@ -16,6 +16,12 @@ public class BookingFragment extends Fragment {
 
     View view;
     private ListView listView;
+    User user;
+
+    public BookingFragment(User user){
+        this.user=user;
+
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,9 +36,14 @@ public class BookingFragment extends Fragment {
 
     private List<Booking> getBookings(){
 
-        UserDatabase.getDatabase(getActivity()).myBookingDAO().addBooking(new Booking(1,1,2,3,555));
+        List<Booking> bookingList;
+        bookingList=UserDatabase.getDatabase(getActivity()).myBookingDAO().getBookings();
+        if(bookingList.isEmpty()) {
+            UserDatabase.getDatabase(getActivity()).myBookingDAO().addBooking(new Booking(user.getId(), 1, 2, 3, 555));
+            UserDatabase.getDatabase(getActivity()).myBookingDAO().addBooking(new Booking(user.getId(), 1, 2, 4, 555));
+            bookingList=UserDatabase.getDatabase(getActivity()).myBookingDAO().getBookingsByUserId(user.getId());
+        }
 
-
-    return UserDatabase.getDatabase(getActivity()).myBookingDAO().getBookings();
+        return bookingList;
     }
 }

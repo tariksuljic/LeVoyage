@@ -58,8 +58,8 @@ public class Home extends AppCompatActivity {
 
     private void setUpAdapter(ViewPager viewPager){
         ViewPageAdapter viewPageAdapter=new ViewPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPageAdapter.addFragment(new ExploreFragment());
-        viewPageAdapter.addFragment(new BookingFragment());
+        viewPageAdapter.addFragment(new ExploreFragment(user));
+        viewPageAdapter.addFragment(new BookingFragment(user));
         viewPageAdapter.addFragment(new ProfileFragment(user));
         Log.d("Error home", " "+user);
         viewPager.setAdapter(viewPageAdapter);
