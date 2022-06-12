@@ -1,17 +1,14 @@
 package com.example.levoyage;
 
-import androidx.room.ColumnInfo;
+
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
-import java.util.Date;
 
 @Entity(tableName = "destinations")
 public class Destinations {
 
     @PrimaryKey(autoGenerate = true)
-//    @ColumnInfo(name = "destination_id")
     private int destinationId;
 
     private int imageResId;

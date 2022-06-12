@@ -1,35 +1,18 @@
 package com.example.levoyage;
 
-import androidx.room.ColumnInfo;
+
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "bookings" /*, foreignKeys = {
-        @ForeignKey(entity = Destinations.class,
-                    parentColumns = "destination_id",
-                    childColumns = "b_destination_id"),
-        @ForeignKey(entity = User.class,
-                parentColumns = "user_id",
-                childColumns = "b_user_id")
+@Entity(tableName = "bookings")
 
-}*/
-
-
-)
 public class Booking {
 
     @PrimaryKey(autoGenerate = true)
-//    @ColumnInfo(name = "booking_id")
     private int bookingId;
 
- //   @ColumnInfo(name = "b_destination_id")
     private int userId;
-
- //   @ColumnInfo(name="b_user_id")
- //   private int destinationId;
- //  private int bookedImageResId;
     private String totalPrice;
     private String destinationTitle;
 

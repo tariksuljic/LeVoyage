@@ -3,9 +3,6 @@ package com.example.levoyage;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
@@ -24,8 +21,8 @@ import android.widget.TextView;
 public class BookingActivity extends AppCompatActivity {
 
 
-    private TextView title,fullName,email,numberOfPersons,totalPrice,date;
-    private Button increment,decrement,book;
+    private TextView title, totalPrice,date;
+    private Button book;
     private ImageView image;
     public static final String CHANNEL_ID = "My channel";
     private int id;
@@ -62,30 +59,6 @@ public class BookingActivity extends AppCompatActivity {
             manager.createNotificationChannel(channel);
         }
 
-
-//        increment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                count++;
-//                numberOfPersons.setText(""+count);
-//                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
-//
-//            }
-//        });
-//
-//        decrement.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(count<=1) count=1;
-//                else count--;
-//
-//                numberOfPersons.setText(""+count);
-//                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
-//
-//
-//
-//            }
-//        });
 
 
         book.setOnClickListener(new View.OnClickListener() {
