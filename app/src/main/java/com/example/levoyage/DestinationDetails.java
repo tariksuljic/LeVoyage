@@ -72,6 +72,7 @@ public class DestinationDetails extends AppCompatActivity {
                 }
                 else
                 {
+
                     ActivityCompat.requestPermissions(DestinationDetails.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_REQUEST_CODE);
                 }
 
