@@ -63,7 +63,7 @@ public class DestinationDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ActivityCompat.requestPermissions(DestinationDetails.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_REQUEST_CODE);
+
                 if (ContextCompat.checkSelfPermission(DestinationDetails.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
                     {
                         onRequestPermissionsResult(CALL_REQUEST_CODE, new String[]{Manifest.permission.CALL_PHONE}, new int[]{PackageManager.PERMISSION_GRANTED});
@@ -72,7 +72,6 @@ public class DestinationDetails extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(DestinationDetails.this, "Permission not granted", Toast.LENGTH_SHORT).show();
                     ActivityCompat.requestPermissions(DestinationDetails.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_REQUEST_CODE);
                 }
 
