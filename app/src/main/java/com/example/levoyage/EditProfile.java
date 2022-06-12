@@ -49,7 +49,6 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
                 user.setPassword(password);
                 UserDatabase.getDatabase(this).myUserDAO().updateUser(user);
                 Intent intent = new Intent(EditProfile.this, Home.class);
-                intent.putExtra(Login.USER_ID,user.getId());
                 startActivity(intent);
 
 

@@ -1,6 +1,7 @@
 package com.example.levoyage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,7 +15,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Home extends AppCompatActivity {
-    public static final String USER_ID = "";
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
 
@@ -29,10 +29,8 @@ public class Home extends AppCompatActivity {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         viewPager=findViewById(R.id.fragment_container);
-
-        Intent intent = getIntent();
-
-        int id = intent.getIntExtra(USER_ID, 0);
+        SharedPreferences sh = getSharedPreferences("UserIDShared", MODE_PRIVATE);
+        int id = sh.getInt("userID", 0);
         user = UserDatabase.getDatabase(this).myUserDAO().getUser(id);
         Log.d("Error home", " "+user);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
