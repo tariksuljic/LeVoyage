@@ -15,12 +15,12 @@ public class User {
     private String name;
     private String surname;
     private String email;
-    private int birthYear;
+    private String birthYear;
     private String username;
     private String password;
 
     @Ignore
-    public User(String name, String surname, String email, int birthYear, String username, String password) {
+    public User(String name, String surname, String email, String birthYear, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -29,7 +29,7 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String name, String surname, String email, int birthYear, String username, String password) {
+    public User(int id, String name, String surname, String email, String birthYear, String username, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -71,11 +71,11 @@ public class User {
         this.email = email;
     }
 
-    public int getBirthYear() {
+    public String getBirthYear() {
         return birthYear;
     }
 
-    public void setBirthYear(int birthYear) {
+    public void setBirthYear(String birthYear) {
         this.birthYear = birthYear;
     }
 

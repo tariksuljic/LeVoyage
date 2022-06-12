@@ -10,7 +10,6 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.List;
 
@@ -74,7 +73,7 @@ public class BookingFragment extends Fragment {
 
         listView=view.findViewById(R.id.booking_list_view);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                getActivity(), R.layout.simple_list_item_1, listItems
+                getActivity(), R.layout.custom_list_booking, listItems
 
 
         );

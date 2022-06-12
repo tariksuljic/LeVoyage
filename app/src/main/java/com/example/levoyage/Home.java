@@ -72,7 +72,7 @@ public class Home extends AppCompatActivity {
                 case R.id.nav_explore:
                     viewPager.setCurrentItem(0);
                     return true;
-                case R.id.nav_saved:
+                case R.id.nav_booked:
                     viewPager.setCurrentItem(1);
                     return true;
                 case R.id.nav_profile:

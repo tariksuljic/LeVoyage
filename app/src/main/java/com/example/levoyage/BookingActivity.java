@@ -1,5 +1,6 @@
 package com.example.levoyage;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -9,7 +10,6 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +33,8 @@ public class BookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.back_button);
 
         Bundle extras=getIntent().getExtras();
         title=findViewById(R.id.booking_title);
@@ -43,6 +45,7 @@ public class BookingActivity extends AppCompatActivity {
 
         if(extras!=null){
             id=extras.getInt(DestinationDetails.USER_ID);
+            setTitle(extras.getString(DestinationDetails.EXTRA_TITLE));
             title.setText(extras.getString(DestinationDetails.EXTRA_TITLE));
             Log.d("PRICE",""+extras.getString(DestinationDetails.EXTRA_PRICE));
             totalPrice.setText(extras.getString(DestinationDetails.EXTRA_PRICE));

@@ -43,7 +43,7 @@ public class ProfileFragment extends Fragment {
         name.setText(user.getName());
         lastname.setText(user.getSurname());
         email.setText(user.getEmail());
-        dateofbirth.setText(Integer.toString(user.getBirthYear()));
+        dateofbirth.setText(user.getBirthYear());
         namesurname.setText(user.getName()+" "+user.getSurname());
         TextView gotoedit = view.findViewById(R.id.editProfileTV);
         gotoedit.setOnClickListener(new View.OnClickListener() {

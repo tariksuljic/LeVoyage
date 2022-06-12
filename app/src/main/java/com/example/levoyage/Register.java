@@ -46,7 +46,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 if (tempUser == null)
                 {
                     User newUser = new User(editTextName.getText().toString(), editTextLastName.getText().toString()
-                                            ,editTextEmail.getText().toString(),Integer.parseInt(editTextAge.getText().toString()),editTextUsernameRegister.getText().toString(),editTextPassword.getText().toString());
+                                            ,editTextEmail.getText().toString(),editTextAge.getText().toString(),editTextUsernameRegister.getText().toString(),editTextPassword.getText().toString());
                     UserDatabase.getDatabase(this).myUserDAO().addUser(newUser);
 
                     int new_id = UserDatabase.getDatabase(this).myUserDAO().getUserIDByUsername(editTextUsernameRegister.getText().toString());

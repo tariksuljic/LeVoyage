@@ -17,7 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".BookingActivity"
-            android:parentActivityName=".Home"
+            android:parentActivityName=".DestinationDetails"
             android:exported="false" />
         <activity
             android:name=".Register"
