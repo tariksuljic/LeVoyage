@@ -5,11 +5,13 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity(tableName = "destinations")
 public class Destinations {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "destination_id")
+//    @ColumnInfo(name = "destination_id")
     private int destinationId;
 
     private int imageResId;
@@ -17,24 +19,28 @@ public class Destinations {
     private String destination_description;
     private int destination_price;
     private String phone_number;
+    private String date;
+
 
 
     @Ignore
-    public Destinations(int imageResId, String title, String description, int price, String phone_number) {
+    public Destinations(int imageResId, String title, String description, int price, String phone_number,String date) {
         this.destination_price=price;
         this.imageResId = imageResId;
         this.destination_title = title;
         this.destination_description = description;
         this.phone_number = phone_number;
+        this.date=date;
     }
 
-    public Destinations(int destinationId,int imageResId, String title, String description, int price, String phone_number) {
+    public Destinations(int destinationId,int imageResId, String title, String description, int price, String phone_number,String date) {
         this.destinationId=destinationId;
         this.destination_price=price;
         this.imageResId = imageResId;
         this.destination_title = title;
         this.destination_description = description;
         this.phone_number = phone_number;
+        this.date=date;
     }
 
 
@@ -88,6 +94,13 @@ public class Destinations {
 
     public void setDestination_price(int destination_price) {
         this.destination_price = destination_price;
+    }
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
 

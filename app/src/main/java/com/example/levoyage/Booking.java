@@ -6,7 +6,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "bookings", foreignKeys = {
+@Entity(tableName = "bookings" /*, foreignKeys = {
         @ForeignKey(entity = Destinations.class,
                     parentColumns = "destination_id",
                     childColumns = "b_destination_id"),
@@ -14,53 +14,36 @@ import androidx.room.PrimaryKey;
                 parentColumns = "user_id",
                 childColumns = "b_user_id")
 
-}
-
-
-
-
+}*/
 
 
 )
 public class Booking {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "booking_id")
+//    @ColumnInfo(name = "booking_id")
     private int bookingId;
 
-    @ColumnInfo(name = "b_destination_id")
+ //   @ColumnInfo(name = "b_destination_id")
     private int userId;
 
-    @ColumnInfo(name="b_user_id")
-    private int destinationId;
+ //   @ColumnInfo(name="b_user_id")
+ //   private int destinationId;
+ //  private int bookedImageResId;
+    private String totalPrice;
 
-    private int bookedImageResId;
-    private int numberOfPeople,totalPrice;
 
-    public int getBookedImageResId() {
-        return bookedImageResId;
-    }
-
-    public void setBookedImageResId(int bookedImageResId) {
-        this.bookedImageResId = bookedImageResId;
+    public Booking(int bookingId, int userId, String totalPrice) {
+        this.bookingId = bookingId;
+        this.userId = userId;
+        this.totalPrice = totalPrice;
     }
 
     @Ignore
-    public Booking(int userId,int destinationId,int bookedImageResId,int numberOfPeople,int totalPrice){
-        this.userId=userId;
-        this.destinationId=destinationId;
-        this.bookedImageResId=bookedImageResId;
-        this.numberOfPeople=numberOfPeople;
-        this.totalPrice=totalPrice;
-    }
+    public Booking( int userId, String totalPrice) {
 
-    public Booking(int bookingId, int userId, int destinationId, int bookedImageResId, int numberOfPeople, int totalPrice){
-        this.bookingId=bookingId;
-        this.userId=userId;
-        this.destinationId=destinationId;
-        this.bookedImageResId= bookedImageResId;
-        this.numberOfPeople=numberOfPeople;
-        this.totalPrice=totalPrice;
+        this.userId = userId;
+        this.totalPrice = totalPrice;
     }
 
     public int getBookingId() {
@@ -79,27 +62,11 @@ public class Booking {
         this.userId = userId;
     }
 
-    public int getDestinationId() {
-        return destinationId;
-    }
-
-    public void setDestinationId(int destinationId) {
-        this.destinationId = destinationId;
-    }
-
-    public int getNumberOfPeople() {
-        return numberOfPeople;
-    }
-
-    public void setNumberOfPeople(int numberOfPeople) {
-        this.numberOfPeople = numberOfPeople;
-    }
-
-    public int getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

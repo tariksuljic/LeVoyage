@@ -9,8 +9,10 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,10 +20,12 @@ import android.widget.TextView;
 public class BookingActivity extends AppCompatActivity {
 
 
-    private TextView title,fullName,email,numberOfPersons,totalPrice;
+    private TextView title,fullName,email,numberOfPersons,totalPrice,date;
     private Button increment,decrement,book;
-    int count=1;
+
     public static final String CHANNEL_ID = "My channel";
+    private int id;
+
 
 
     @Override
@@ -29,22 +33,22 @@ public class BookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
+
+//        SharedPreferences sh=getSharedPreferences("UserIDShared",MODE_PRIVATE);
+//        int id=sh.getInt("userID",0);
+//        User user=UserDatabase.getDatabase(this).myUserDAO().getUser(id);
+
         Bundle extras=getIntent().getExtras();
         title=findViewById(R.id.booking_title);
-        fullName=findViewById(R.id.full_name);
-        email=findViewById(R.id.email);
-        numberOfPersons=findViewById(R.id.number_of_persons);
         totalPrice=findViewById(R.id.total_price);
-        increment=findViewById(R.id.increment_button);
-        decrement=findViewById(R.id.decrement_button);
         book=findViewById(R.id.book_now_button);
+        date=findViewById(R.id.date);
 
         if(extras!=null){
-
+            id=extras.getInt(DestinationDetails.USER_ID);
             title.setText(extras.getString(DestinationDetails.EXTRA_TITLE));
-            totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
-
-
+            totalPrice.setText(extras.getString(DestinationDetails.EXTRA_PRICE));
+            date.setText(extras.getString(DestinationDetails.EXTRA_DATE));
 
         }
 
@@ -57,35 +61,37 @@ public class BookingActivity extends AppCompatActivity {
         }
 
 
-        increment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                numberOfPersons.setText(" "+count);
-                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+//        increment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                count++;
+//                numberOfPersons.setText(""+count);
+//                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+//
+//            }
+//        });
+//
+//        decrement.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(count<=1) count=1;
+//                else count--;
+//
+//                numberOfPersons.setText(""+count);
+//                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
+//
+//
+//
+//            }
+//        });
 
-            }
-        });
-
-        decrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(count<=1) count=1;
-                else count--;
-
-                numberOfPersons.setText(" "+count);
-                totalPrice.setText(String.valueOf(extras.getInt(DestinationDetails.EXTRA_PRICE)*count));
-
-
-
-            }
-        });
 
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                Booking booking=new Booking(id,totalPrice.getText().toString());
+                UserDatabase.getDatabase(BookingActivity.this).myBookingDAO().addBooking(booking);
 
 
                 new AlertDialog.Builder(BookingActivity.this).setTitle("Le Voyage").setMessage("Congrats!\nYou have successfully booked your destination").show();
